@@ -1,0 +1,40 @@
+{
+  "name": "jira",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:html": "jade src --out public",
+    "build:scss": "node-sass src/scss -o public/css --output-style expanded --source-map true",
+    "build:scss:prod": "node-sass src/scss -o public/css/compressed --output-style compressed",
+    "build:js": "babel src -d public",
+    "build:images": "cp -R src/images/ public/",
+    "watch:html": "nodemon --watch src/ --ext jade,html --exec \"jade src --out public\"",
+    "watch:js": "babel src --watch -d public",
+    "watch:scss": "node-sass --watch src/scss -o public/css --output-style expanded --source-map true",
+    "build": "npm run build:html && npm run build:scss && npm run build:js && npm run build:images",
+    "watch": "concurrently \"npm:watch:*\" \"npm run serve\"",
+    "clean": "rimraf public/",
+    "serve": "live-server public/ --host=0.0.0.0 --port=3000",
+    "start": "npm run build && npm run watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jade": "^1.11.0",
+    "node-sass": "4.12.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "eslint": "5.12.0",
+    "font-awesome": "^4.7.0",
+    "live-server": "^1.2.0",
+    "nodemon": "^1.17.2"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
