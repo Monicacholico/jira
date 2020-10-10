@@ -6,14 +6,15 @@ class Modal {
         this.projectName = card.projectName;
         this.text = card.text;
         this.date = new Date();
-        this.asignee = ele.asignee;
+        this.asignee = card.asignee;
         this.initialCard();
     }
 
     initialCard() {
-        const listToDoCards = document.querySelector('.list-do-do');
+        const listToDoCards = document.querySelector('.list-to-do');
+        console.log(listToDoCards)
         const toDoCard = document.createElement('li');
-        listToDoCards.appendChild(toDoCard);
+        toDoCard.innerHTML += liContent;
         const liContent = `
         <div class="card">
             <div class="title-card">
@@ -27,6 +28,10 @@ class Modal {
             </div>
         </div>
         `;
+        listToDoCards.appendChild(toDoCard);
+        console.log(this.projectName);
+        console.log(this.text);
+        console.log(this.asignee);
 
         this.createBtn.addEventListener('click', this.initialCard.bind(this));
     }
@@ -35,13 +40,14 @@ class Modal {
 
 }
 
-const myModal = new Modal();
+new Modal({
+    projectName: 'First Project',
+    text: 'My first task explained',
+    asignee: 'Monica'
+});
 
 
-function greeting() {
-    alert('hello world');
-}
-greeting();
+
 
 // import { ProjectList } from '../src/app/projectList.js';
 
