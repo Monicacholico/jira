@@ -1,20 +1,21 @@
-class Modal {
-    constructor(card) {
-        this.createBtn = document.querySelector('.createBtn');
-        console.log(this.createBtn);
+class Card {
+    constructor(cardEl) {
+        // this.createBtn = document.querySelector('.createBtn');
+        // console.log(this.createBtn);
         this.toDoBoard = document.querySelector('.to-do');
-        this.projectName = card.projectName;
-        this.text = card.text;
+        this.projectName = cardEl.projectName;
+        this.text = cardEl.text;
         this.date = new Date();
-        this.asignee = card.asignee;
-        this.initialCard();
+        this.asignee = cardEl.asignee;
+        // this.initialCard();
+        this.build();
     }
 
     initialCard() {
         const listToDoCards = document.querySelector('.list-to-do');
         console.log(listToDoCards)
         const toDoCard = document.createElement('li');
-        toDoCard.innerHTML += liContent;
+        listToDoCards.appendChild(toDoCard);
         const liContent = `
         <div class="card">
             <div class="title-card">
@@ -28,19 +29,23 @@ class Modal {
             </div>
         </div>
         `;
-        listToDoCards.appendChild(toDoCard);
+        toDoCard.innerHTML += liContent;
+        // toDoCard.appendChild(liContent);
         console.log(this.projectName);
         console.log(this.text);
         console.log(this.asignee);
 
-        this.createBtn.addEventListener('click', this.initialCard.bind(this));
+        
     }
-
-    build() {}
+    
+    build() {
+        const createBtn = document.querySelector('.createBtn');
+        createBtn.addEventListener('click', this.initialCard.bind(this));
+    }
 
 }
 
-new Modal({
+new Card({
     projectName: 'First Project',
     text: 'My first task explained',
     asignee: 'Monica'

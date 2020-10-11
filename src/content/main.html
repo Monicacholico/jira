@@ -1,5 +1,23 @@
 
     <div class="molo">
+        <template id='new-modal'>
+            <h2>Create Issue</h2>
+            <h3>Project</h3>
+            <p></p>
+            <select name="name-project" id=name-project>
+                <option value="Default">One</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+            </select>
+            <h3>Issue Type</h3>
+            <select name="issue-type">
+                <option value="Default">One</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+            </select>
+            <h3>Summary</h3>
+            <input type="text">
+            </template>
         <section class="section-row">
             <div class="side-bar blue">
                 <i class="fab fa-jira"></i>
@@ -35,10 +53,9 @@
         </section>
 
         <div class="modal-wrapper">
-            <div class="modal">
+            <div class="initial-modal">
                 <h3 class="card-heading">Create issue</h3>
-    
             </div>
         </div>
     </div>
-    <!-- <script src="/js/scripts.js"></script> -->
+    <!-- <script src="js/modal.js"></script> -->
