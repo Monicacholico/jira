@@ -1,63 +1,42 @@
-class DOMHelper {
-    static clearEventListeners(element){
-        const cloneElement = element.cloneNode(true);
-        element.replaceWith(cloneElement);
-        return cloneElement;
-    }
-    static moveElement(elementId, newDestinationSelector) {
-        const element = document.getElementById(elementId);
-        const destinationElement = document.querySelector(newDestinationSelector);
-        destinationElement.append(element);
-        element.scrollIntoView({behavior: 'smooth'});
-    }
-}
-
-class Component {
-    constructor(hostElementId, insertBefore = false){
-        if(hostElementId){
-            this.hostElement = document.getElementById(hostElementId);
-        } else {
-            this.hostElement = document.body;
-        }
-        this.insertBefore = insertBefore;
-    }
-    detach() {
-        if(this.element) {
-            this.element.remove();
-            // this.element.parentElement.removeChild(this.element); for old browsers
-        }
-    }
-    show(){
-        this.hostElement.insertAdjacentElement(
-            this.insertBefore ? 'afterbegin': 'beforeend', 
-            this.element)
-    }
-}
-
-
-class Modal extends Component {
-    constructor(modalEl)  {
-        super(hostElementId);
-        this.text = modalEl.text;
-        this.create();
+class Modal {
+    constructor(elem) {
+        this.currElement = elem;
+        this.targetId = elem.getAttribute('data-modal-id');
+        this.overlay = document.getElementById(this.targetId);
+        this.modalElement = document.querySelector(`${this.targetId} + .modal`);
+        this.firstCloseButton = document.querySelector(`${this.targetId} + [data-modal-close]`);
+        this.closeButtons = document.querySelectorAll(`${this.targetId} + [data-modal-close]`);
+        this.body = document.querySelector('body');
+        this.handleEscapeKey = this.handleEscapeKey.bind(this);
+        this.handleFocusTrap = this.handleFocusTrap.bind(this);
+        this.allInstances = [];
+        this.allInstances.push(this);
+        this.build(elem);
+        this.isOpen = false;
     }
 
+    buid(modalLink) {
+        const self = this;
+        this.validateSelector(modalLink);
+        self.modalElement.setAttribute('aria-hidden', 'true');
+        this.handleTabIndex(this.overlay, 'close');
+        modalLink.addEventListener('click', function() {
+            self.openModal();
+        });
+        self.initializeCloseevents(this.closeButtons);
+    };
 
-    build() {
-        const modalElement = document.createElement('div');
-        modalElement.className = 'initial-modal';
-        const modalTemplate = document.getElementById('new-modal');
-        const modalBody = document.importNode(modalTemplate.content, true);
-        modalBody.querySelector('p').textcontent = this.text;
-        modalElement.appendChild(modalBody);
-        console.log('im working');
+
+    openModal() {
+
     }
 
-    create() {
-        const createBtn = document.querySelector('.createBtn');
-        createBtn.addEventListener('click', this.build);
-    }
 
 }
 
-new Modal({});
+class ProjectItem {}
+
+class ProjectList {}
+
+class App {}
+
