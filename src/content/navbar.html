@@ -1,15 +1,17 @@
 <div class="molo">
-    <nav>
-        <ul class="main-bar">
-            <li class="el-main-nav">Your Work</li>
-            <li class="el-main-nav">Projects<span class="down-arrow"></span></li>
-            <li class="el-main-nav">Filters<span class="down-arrow"></span></li>
-            <li class="el-main-nav">Dashboards<span class="down-arrow"></span></li>
-            <li class="el-main-nav">People<span class="down-arrow"></span></li>
-            <li class="el-main-nav">Apps<span class="down-arrow"></span></li>
-            <li class="el-main-nav createBtn"><button data-toggle="modal" data-modal-id="demo-modal" type="button">Create</button></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <ul class="main-bar">
+                <li class="el-main-nav">Your Work</li>
+                <li class="el-main-nav">Projects<span class="down-arrow"></span></li>
+                <li class="el-main-nav">Filters<span class="down-arrow"></span></li>
+                <li class="el-main-nav">Dashboards<span class="down-arrow"></span></li>
+                <li class="el-main-nav">People<span class="down-arrow"></span></li>
+                <li class="el-main-nav">Apps<span class="down-arrow"></span></li>
+                <li class="el-main-nav createBtn"><button data-toggle="modal" data-modal-id="demo-modal" type="button">Create</button></li>
+            </ul>
+        </nav>
+    </header>
 </div>
 <div class="molo">
     <div class="modal-container" id="demo-modal">
@@ -18,9 +20,15 @@
                 <div class="modal-close-wrap">
                     <button class="modal-close" data-modal-close type="button"></button>
                 </div>
-                <h2 class="modal-title">Modal Heading</h2>
+                <h2 class="modal-title">Create Issue</h2>
             </div>
-            <div class="moda-body">
+            <div class="modal-body">
+                <label for="project-type">Project<span class="asterisc">*</span></label>
+                <input type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-haspopu=
+                true aria-expanded="false" id="project-type" class="input-type-text">
+                <!-- <select name="project-type" id="project-type">
+                    option
+                </select> -->
                 <p class="body-copy">Modal body content.</p>
                 <a href="#">Link</a>
             </div>
