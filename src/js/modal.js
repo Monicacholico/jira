@@ -36,6 +36,7 @@
         this.handleFocusTrap = this.handleFocusTrap.bind(this);
         this.allInstances.push(this);
         this.build(elem);
+        this.projectList = this.projectList.bind(this);
         // this.isOpen(false);
     }
 
@@ -70,7 +71,7 @@
         this.modalElement.classList.remove('active');
         this.handleScreenreaderClose(this.modalElement);
         fireCustomEvent(this.overlay, 'id', 'modalClose');
-        this.isOpen && this.currentElement.focus();
+        // this.isOpen && this.currentElement.focus();
         this.handleTabIndex(this.overlay, 'close');
         this.isOpen = false;
     };
@@ -167,6 +168,24 @@
                     }
                 }
             }
+        }
+        Modal.prototype.projectList = function () {
+            const modalBody = document.querySelector('.modal-body');
+            const projectListDiv = document.querySelector('.list-projects');
+            const inputProject = modalBody.querySelector('input');
+
+            function divProjectsDisplayer() {
+                project = projectListDiv;
+                console.log(projectListDiv);
+                if(project.classList.contains('displayed')) {
+                    project.remove.classList('displayed');
+                }
+                project.classList.add('displayed');
+            }
+
+            inputProject.addEventListener('click', divProjectsDisplayer);
+
+
         }
     };
 

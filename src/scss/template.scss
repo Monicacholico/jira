@@ -294,7 +294,19 @@ body {
         padding: 16px 32px;
         width: 800px;
         margin-left: auto;
-        margin-right: auto
+        margin-right: auto;
+        .list-projects {
+            display: none;
+            min-height: 300px;
+            height: auto;
+            ul {
+                font-weight: 500;
+            }
+
+        }
+        &.displayed {
+            display: block;
+        }
     }
 
     .modal-footer {
