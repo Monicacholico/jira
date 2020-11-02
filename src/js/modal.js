@@ -181,10 +181,7 @@
 })();
 
 
-const modalBody = document.querySelector('.modal-body');
-        console.log(modalBody);
-const projectListDiv = document.querySelector('.list-projects');
-const inputProject = modalBody.querySelector('input');
+
 
 
 

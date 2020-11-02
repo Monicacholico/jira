@@ -23,17 +23,43 @@
                 <h2 class="modal-title">Create Issue</h2>
             </div>
             <div class="modal-body">
-                <label for="project-type">Project<span class="asterisc">*</span></label>
-                <input type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-haspopu=
-                true aria-expanded="false" id="project-type" class="input-type-text">
-                <div class="list-projects">
-                    <ul>Recent Projects
-                        <li>Example</li>
-                    </ul>
-                    <ul>
-                        All Projects
-                        <li></li>
-                    </ul>
+                <div class="project">
+                    <label for="project-type">Project<span class="asterisc">*</span></label>
+                    <input type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-haspopu=
+                    true aria-expanded="false" id="project-type" class="input-type-text" placeholder="example"><span class="btn-project-displayer"><i class="fas fa-angle-down"></i></span>
+                    <div class="list-projects no-display">
+                        <ul>Recent Projects
+                            <li>Example</li>
+                            <li>My new Example</li>
+                            <li>My other new Example</li>
+                            <li>My most new Example</li>
+                        </ul>
+                        <ul>
+                            All Projects
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="issue">
+                    <label for="project-type">Issue<span class="asterisc">*</span></label>
+                    <input type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-haspopu=
+                    true aria-expanded="false" id="issue-type" class="input-type-text" placeholder="example"><span class="btn-issue-displayer"><i class="fas fa-angle-down"></i></span>
+                    <div class="list-projects no-display">
+                        <ul>Issue Type
+                            <li>Example</li>
+                            <li>My new Example</li>
+                            <li>My other new Example</li>
+                            <li>My most new Example</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="summary">
+                    <label for="summary">Summary</label>
+                    <input type="text" id="summary">
+                </div>
+                <div class="description">
+                    <label for="description">Description</label>
+                    <input type="text" id="description">
                 </div>
                 <!-- <select name="project-type" id="project-type">
                     option
