@@ -25,7 +25,7 @@
     }
 
     function Modal(elem) {
-        this.currenElem = elem;
+        this.currentElem = elem;
         this.targetId = elem.getAttribute('data-modal-id');
         this.overlay = document.getElementById(this.targetId);
         this.modalElement = document.querySelector('#' + this.targetId + ' .modal');
@@ -36,7 +36,6 @@
         this.handleFocusTrap = this.handleFocusTrap.bind(this);
         this.allInstances.push(this);
         this.build(elem);
-        this.projectList = this.projectList.bind(this);
         // this.isOpen(false);
     }
 
@@ -169,24 +168,7 @@
                 }
             }
         }
-        Modal.prototype.projectList = function () {
-            const modalBody = document.querySelector('.modal-body');
-            const projectListDiv = document.querySelector('.list-projects');
-            const inputProject = modalBody.querySelector('input');
 
-            function divProjectsDisplayer() {
-                project = projectListDiv;
-                console.log(projectListDiv);
-                if(project.classList.contains('displayed')) {
-                    project.remove.classList('displayed');
-                }
-                project.classList.add('displayed');
-            }
-
-            inputProject.addEventListener('click', divProjectsDisplayer);
-
-
-        }
     };
 
     (function init(){
@@ -199,13 +181,22 @@
 })();
 
 
+const modalBody = document.querySelector('.modal-body');
+        console.log(modalBody);
+const projectListDiv = document.querySelector('.list-projects');
+const inputProject = modalBody.querySelector('input');
+
 
 
 
 
 class ProjectItem {}
 
-class ProjectList {}
+class ProjectList {
+
+
+
+}
 
 class App {}
 
