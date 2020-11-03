@@ -208,6 +208,7 @@ body {
         display: inline-block;
         text-align: left;
         max-width: 865px;
+        width: 865px;
         min-height: auto;
         margin-bottom: 16px;
         background: whitesmoke;
@@ -261,14 +262,18 @@ body {
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+    .modal-close-wrap {
+        visibility: hidden;
+    }
 
     .modal-close {
-        position: absolute;
-        top: 7px;
+        position: relative;
+        top: 3px;
+        left:5px;
         right: 7px;
         padding: 9px 8px 7px;
         font-size: 1.1em;
-        color: lightblue;
+        color:#0052cc;;
         background: none;
         border: 0;
         cursor: pointer;
@@ -280,7 +285,7 @@ body {
             margin-top: -2px;
         }
         &:hover {
-            background: darkgray;
+            // background: darkgray;
         }
         &:focus {
             outline: 2px solid lightsteelblue;
@@ -288,7 +293,6 @@ body {
     }
 
     .modal-body {
-        // padding: 24px;
         background-color: #fff;
         border: none;
         padding: 16px 32px;
@@ -296,9 +300,9 @@ body {
         margin-left: auto;
         margin-right: auto;
         .list-projects {
-            // min-height: 300px;
             display: block;
             position: relative;
+            top: 10px;
             left: 0px;
             max-width: 175px;
             width: 100%;
@@ -328,10 +332,44 @@ body {
         background-color: #fff;
         border: none;
         padding: 16px 32px;
-        width: 768px;
+        width: 800px;
         margin-left: auto;
-        margin-right: auto
+        margin-right: auto; 
     }
+    .footer-btns {
+       text-align: right;
+       input {
+           position: relative;
+           top: 11px;
+       }
+       .bottom-btn {
+           -webkit-box-align: baseline;
+               align-items: baseline;
+               border-width: 0px;
+               box-sizing: border-box;
+               display: inline-flex;
+               font-size: inherit;
+               font-style: normal;
+               font-weight: 500;
+               max-width: 100%;
+               text-align: center;
+               text-decoration: none;
+               white-space: nowrap;
+               background: rgb(0, 82, 204);
+               border-radius: 3px;
+               box-shadow: transparent 0px 0px 0px 2px;
+               color: rgb(255, 255, 255);
+               cursor: default;
+               height: 2.28571em;
+               line-height: 2.28571em;
+               padding: 0px 8px;
+               transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+               vertical-align: middle;
+               width: auto;
+               margin-left: 12px;
+       }
+    }
+
 
     .modal-bottom-close {
         left: -1000%;
@@ -352,10 +390,10 @@ body {
         left: -48px;
     }
 
-    #summary, #description {
+    #summary, #description, #assignee, #labels, #reporter,
+    #linked-issues, #attachment {
         width: 100%;
         position: relative;
-        top: 25px;
         left: 0px;
         height: 32px;
         font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
@@ -367,6 +405,15 @@ body {
         background-color: #f4f5f7;
         border: 1px solid #dfe1e6;
         padding: 4px 7px 5px;
+    }
+    #attachment {
+        width: 100%;
+        border: 1px dashed #ccc;
+        border-radius: 0;
+        padding: 7px;
+        transition: background-color .01s linear .01s;
+        position: relative;
+        background-color: #fff;
     }
 
     input {
@@ -395,9 +442,48 @@ body {
         top: 25px;
         left: -9%;
     }
+    .btn-assignee-displayer, .btn-labels-displayer, .btn-linkedIssues-displayer {
+        position: relative;
+        top: -34px;
+        left: 96%;
+    }
+    .issue-description {
+        margin-top: -30px;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 20px;
+        font-size: 12px;
+        color: #6c798f;
+    }
+    .flagged {
+        display: flex;
+        flex-flow: column wrap;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        label {
+            position: relative;
+            top: -10px;
+        }
+        .flagged-input {
+            display: flex;
+            flex-flow: row nowrap;
+            p {
+                position: relative;
+                top: -9px;
+                left: 3px;
+            }
+        }
 
-    .issue, .summary, .description {
+    }
+
+    .issue {
         margin-bottom: 50px;
+    }
+    .summary, .description, .reporter, .attachment {
+        margin-bottom: 25px;
+    }
+    .assignee, .labels {
+        margin-bottom: -15px;
     }
 }
 

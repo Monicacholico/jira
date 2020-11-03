@@ -4,7 +4,11 @@
         //Gives custom events function to IE11
         if(typeof window.customEvent === 'function') return false;
         function CustomEvent(event, params) {
-            params = params || {bubbles: false, cancelable: false, detail: undefined };
+            params = params || {
+                bubbles: false, 
+                cancelable: false, 
+                detail: undefined 
+            };
             const evt = document.createEvent('CustomEvent');
             evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
             return evt;
@@ -25,18 +29,20 @@
     }
 
     function Modal(elem) {
-        this.currentElem = elem;
+        this.currentElement = elem;
         this.targetId = elem.getAttribute('data-modal-id');
         this.overlay = document.getElementById(this.targetId);
         this.modalElement = document.querySelector('#' + this.targetId + ' .modal');
-        this.firstCloseButton = document.querySelector('#' + this.targetId + '[data-modal-close]');
-        this.closeButtons = document.querySelectorAll('#' + this.targetId + '[data-modal-close]');
+        this.firstCloseButton = document.querySelector(`#${this.targetId} [data-modal-close]`);
+        console.log(this.firstCloseButton);
+        this.closeButtons = document.querySelectorAll(`#${this.targetId} [data-modal-close]`);
+        console.log(this.closeButtons);
         this.body = document.querySelector('body');
         this.handleEscapeKey = this.handleEscapeKey.bind(this);
         this.handleFocusTrap = this.handleFocusTrap.bind(this);
         this.allInstances.push(this);
         this.build(elem);
-        // this.isOpen(false);
+        this.isOpen = false;
     }
 
     Modal.prototype.build = function(modalLink) {
@@ -54,7 +60,7 @@
         this.overlay.classList.add('open');
         this.modalElement.classList.add('active');
         this.body.classList.add('modal-open');
-        document.querySelector('#' + this.targetId + ' [data-modal-close]').focus();
+        document.querySelector(`#${this.targetId} [data-modal-close]`).focus();
         document.addEventListener('keydown', this.handleFocusTrap);
         document.addEventListener('keydon', this.handleFocusTrap);
         this.handleTabIndex(this.overlay, 'open');
@@ -70,7 +76,8 @@
         this.modalElement.classList.remove('active');
         this.handleScreenreaderClose(this.modalElement);
         fireCustomEvent(this.overlay, 'id', 'modalClose');
-        // this.isOpen && this.currentElement.focus();
+        console.log(this.currentElement)
+        this.isOpen && this.currentElement.focus();
         this.handleTabIndex(this.overlay, 'close');
         this.isOpen = false;
     };
