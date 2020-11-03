@@ -61,14 +61,46 @@
                     <label for="description">Description</label>
                     <input type="text" id="description">
                 </div>
-                <!-- <select name="project-type" id="project-type">
-                    option
-                </select> -->
-                <p class="body-copy">Modal body content.</p>
-                <a href="#">Link</a>
+                <div class="assignee">
+                    <label for="assignee">Assignee</label>
+                    <input type="text" id="assignee" placeholder="Automatic"><span class="btn-assignee-displayer"><i class="fas fa-angle-down"></i></span>
+                </div>
+                <div class="labels">
+                    <label for="labels">Labels</label>
+                    <input type="text" id="labels"><span class="btn-labels-displayer"><i class="fas fa-angle-down"></i></span>
+                </div>
+                <div class="reporter">
+                    <label for="reporter">Reporter</label>
+                    <input type="text" id="reporter">
+                </div>
+                <div class="attachment">
+                    <label for="attachment">Attachment</label>
+                    <input type="text" id="attachment">
+                </div>
+                <div class="linked-issues">
+                    <label for="linked-issues">Linked Issues</label>
+                    <input type="text" id="linked-issues"><span class="btn-linkedIssues-displayer"><i class="fas fa-angle-down"></i></span>
+                </div>
+                <div class="issue-description">
+                    Begin typing to search for issues to link. If you leave it blan, no link will be made.
+                </div>
+                <div class="flagged">
+                    <label for="flagged">Flagged</label>
+                    <div class="flagged-input">
+                        <input type="checkbox" value="Impediment"> 
+                        <p>Impediment</p>
+                    </div>
+                </div>
+                <div class="issue-description">
+                    Allows to flag issues with impediments.
+                </div>
             </div>
             <div class="modal-footer">
-                <div>Modal Footer</div>
+                <div class="footer-btns">
+                    <input type="checkbox"> Create another
+                    <button class="bottom-btn" type="button" id="createTask">Create</button>
+                    <button class="modal-close" data-modal-close type="button">Cancel</button>
+                </div>
             </div>
             <button class="modal-bottom-close" data-modal-close type="button"></button>
         </div>
