@@ -16,8 +16,7 @@
     "watch": "concurrently \"npm:watch:*\" \"npm run serve\"",
     "clean": "rimraf public/",
     "serve": "live-server public/ --host=0.0.0.0 --port=3000",
-    "start": "npm run build && npm run watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run build && npm run watch"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
