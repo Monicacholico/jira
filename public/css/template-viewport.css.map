@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "template-viewport.css",
+	"sources": [
+		"../../src/scss/template-viewport.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

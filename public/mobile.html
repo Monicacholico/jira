@@ -1,0 +1,176 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+<link rel="stylesheet" href="css/template.css">
+<link rel="stylesheet" href="css/template-viewport.css"><div class="molo">
+    <header>
+        <nav>
+            <ul class="main-bar">
+                <li class="el-main-nav">Your Work</li>
+                <li class="el-main-nav">Projects<span class="down-arrow"></span></li>
+                <li class="el-main-nav">Filters<span class="down-arrow"></span></li>
+                <li class="el-main-nav">Dashboards<span class="down-arrow"></span></li>
+                <li class="el-main-nav">People<span class="down-arrow"></span></li>
+                <li class="el-main-nav">Apps<span class="down-arrow"></span></li>
+                <li class="el-main-nav createBtn"><button data-toggle="modal" data-modal-id="demo-modal" type="button">Create</button></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<div class="molo">
+    <div class="modal-container" id="demo-modal">
+        <div class="modal" role="document">
+            <div class="modal-header">
+                <div class="modal-close-wrap">
+                    <button class="modal-close" data-modal-close type="button"></button>
+                </div>
+                <h2 class="modal-title">Create Issue</h2>
+            </div>
+            <div class="modal-body">
+                <div class="project">
+                    <label for="project-type">Project<span class="asterisc">*</span></label>
+                    <input type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-haspopu=
+                    true aria-expanded="false" id="project-type" class="input-type-text" placeholder="example"><span class="btn-project-displayer"><i class="fas fa-angle-down"></i></span>
+                    <div class="list-projects no-display">
+                        <ul>Recent Projects
+                            <li>Example</li>
+                            <li>My new Example</li>
+                            <li>My other new Example</li>
+                            <li>My most new Example</li>
+                        </ul>
+                        <ul>
+                            All Projects
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="issue">
+                    <label for="project-type">Issue<span class="asterisc">*</span></label>
+                    <input type="text" autocomplete="off" role="combobox" aria-autocomplete="list" aria-haspopu=
+                    true aria-expanded="false" id="issue-type" class="input-type-text" placeholder="example"><span class="btn-issue-displayer"><i class="fas fa-angle-down"></i></span>
+                    <div class="list-projects no-display">
+                        <ul>Issue Type
+                            <li>Example</li>
+                            <li>My new Example</li>
+                            <li>My other new Example</li>
+                            <li>My most new Example</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="summary">
+                    <label for="summary">Summary</label>
+                    <input type="text" id="summary">
+                </div>
+                <div class="description">
+                    <label for="description">Description</label>
+                    <input type="text" id="description">
+                </div>
+                <div class="assignee">
+                    <label for="assignee">Assignee</label>
+                    <input type="text" id="assignee" placeholder="Automatic"><span class="btn-assignee-displayer"><i class="fas fa-angle-down"></i></span>
+                </div>
+                <div class="labels">
+                    <label for="labels">Labels</label>
+                    <input type="text" id="labels"><span class="btn-labels-displayer"><i class="fas fa-angle-down"></i></span>
+                </div>
+                <div class="reporter">
+                    <label for="reporter">Reporter</label>
+                    <input type="text" id="reporter">
+                </div>
+                <div class="attachment">
+                    <label for="attachment">Attachment</label>
+                    <input type="text" id="attachment">
+                </div>
+                <div class="linked-issues">
+                    <label for="linked-issues">Linked Issues</label>
+                    <input type="text" id="linked-issues"><span class="btn-linkedIssues-displayer"><i class="fas fa-angle-down"></i></span>
+                </div>
+                <div class="issue-description">
+                    Begin typing to search for issues to link. If you leave it blan, no link will be made.
+                </div>
+                <div class="flagged">
+                    <label for="flagged">Flagged</label>
+                    <div class="flagged-input">
+                        <input type="checkbox" value="Impediment"> 
+                        <p>Impediment</p>
+                    </div>
+                </div>
+                <div class="issue-description">
+                    Allows to flag issues with impediments.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="footer-btns">
+                    <input type="checkbox"> Create another
+                    <button class="bottom-btn" type="button" id="createTask">Create</button>
+                    <button class="modal-close" data-modal-close type="button">Cancel</button>
+                </div>
+            </div>
+            <button class="modal-bottom-close" data-modal-close type="button"></button>
+        </div>
+    </div>
+</div>
+    <div class="molo">
+        <template id='new-modal'>
+            <h2>Create Issue</h2>
+            <!-- <h3>Project</h3> -->
+            <p></p>
+            <!-- <select name="name-project" id=name-project>
+                <option value="Default">One</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+            </select>
+            <h3>Issue Type</h3>
+            <select name="issue-type">
+                <option value="Default">One</option>
+                <option value="two">Two</option>
+                <option value="three">Three</option>
+            </select>
+            <h3>Summary</h3>
+            <input type="text"> -->
+        </template>
+        <section class="section-row">
+            <div class="side-bar blue">
+                <i class="fab fa-jira"></i>
+            </div>
+            <div class="content gray">
+               <ul class="side-nav">
+                   <li class="el-side-nav"><i class="fas fa-rocket"></i>Library</li>
+                   <li class="el-side-nav"><i class="fas fa-road"></i>Roadmap</li>
+                   <li class="el-side-nav"><i class="fas fa-columns"></i></i>Board</li>
+                   <li class="el-side-nav"><i class="fas fa-code"></i>Code</li>
+                   <li class="el-side-nav"><i class="fas fa-file-alt"></i>Pages</li>
+                   <li class="el-side-nav"><i class="far fa-plus-square"></i>Add item</li>
+                   <li class="el-side-nav"><i class="fas fa-cog"></i>Project settings</li>
+               </ul>   
+            </div>
+            <div class="content white">
+                <section class="header">
+                    Project / Library
+                    <h2 class="heading">Name Board</h2>
+                </section>
+                <section class="body">
+                    <div class="sm-board to-do">TO DO
+                        <ul class="list-to-do"></ul>
+                    </div>
+                    <div class="sm-board in-progress">IN PROGRESS
+                        <div class="card">
+                            
+                        </div>
+                        <ul class="list-in-progress"></ul>
+                    </div>
+                    <div class="sm-board done">DONE
+                        <ul class="list-done"></ul>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- <div class="modal-wrapper">
+            <div class="initial-modal">
+                <h3 class="card-heading">Create issue</h3>
+            </div>
+        </div> -->
+    </div>
+    <!-- <script src="js/modal.js"></script> -->
+<!-- <script src="js/scripts.js" defer></script> -->
+<script src="js/modal.js" defer></script>
+<script src="js/projectList.js" defer></script>

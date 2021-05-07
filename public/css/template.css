@@ -1,0 +1,515 @@
+body {
+  box-sizing: border-box;
+}
+
+.molo {
+  font-family: apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
+}
+
+.molo i {
+  padding: 10px;
+}
+
+.molo .fab.fa-jira {
+  color: white;
+  font-size: 32px;
+}
+
+.molo .section-col {
+  min-height: 100%;
+  padding: 0;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.molo .section-row {
+  min-height: 100%;
+  padding: 0;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.molo .section-row .side-bar {
+  padding: 1rem;
+  width: 5%;
+}
+
+.molo .section-row .side-bar.blue {
+  background-color: #0052cc;
+}
+
+.molo .section-row .content.gray {
+  background-color: #f4f5f7;
+  width: 20%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.molo .section-row .content.gray .side-nav {
+  list-style: none;
+}
+
+.molo .section-row .content.gray .side-nav .el-side-nav {
+  padding: 10px 0;
+}
+
+.molo .section-row .content.white {
+  display: flex;
+  flex-flow: column wrap;
+  background-color: #fff;
+  width: 50%;
+}
+
+.molo .section-row .content.white .header {
+  padding: 32px 16px;
+}
+
+.molo .section-row .content.white .body {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.molo .section-row .content.white .body .sm-board {
+  margin: 0 10px;
+  padding: 10px;
+  min-width: 200px;
+  min-height: 100%;
+  border-radius: 3px;
+  background-color: #f4f5f7;
+}
+
+.molo header {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: 56px;
+  position: relative;
+  background-color: #FFFFFF;
+  color: #6B778C;
+}
+
+.molo header:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 4px;
+  background: linear-gradient(180deg, rgba(9, 30, 66, 0.13) 0, rgba(9, 30, 66, 0.13) 1px, rgba(9, 30, 66, 0.08) 1px, rgba(9, 30, 66, 0) 4px);
+}
+
+.molo nav {
+  align-items: center;
+  display: flex;
+  flex-grow: 1;
+  min-width: 0;
+  height: inherit;
+  background-color: white;
+  color: black;
+  font-size: 14px;
+}
+
+.molo nav .main-bar {
+  display: flex;
+  flex-flow: row nowrap;
+  list-style: none;
+}
+
+.molo nav .main-bar .el-main-nav {
+  padding: 0 10px;
+  font-weight: bold;
+  margin: 0 4px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-self: baseline;
+}
+
+.molo nav .down-arrow {
+  transform: rotate(-90deg);
+}
+
+.molo nav .down-arrow:after {
+  content: '\203A';
+  margin-left: 5px;
+}
+
+.molo nav .createBtn button {
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  border-width: 0px;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 500;
+  max-width: 100%;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background: #0052cc;
+  border-radius: 3px;
+  box-shadow: transparent 0px 0px 0px 2px;
+  color: white;
+  cursor: default;
+  height: 2.28571em;
+  line-height: 2.28571em;
+  padding: 0px 8px;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  vertical-align: middle;
+  width: auto;
+}
+
+.molo .modal-wrapper {
+  margin: auto;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.molo .initial-modal {
+  padding: 1.5rem;
+  margin: 0 auto;
+  height: 50vh;
+  width: 50%;
+  background-color: bisque;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.molo .modal-container {
+  background: rgba(7, 23, 36, 0.4);
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow-y: auto;
+  z-index: 21000;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  text-align: center;
+  min-width: 800px;
+}
+
+.molo .modal-container:before {
+  content: '';
+  display: inline-block;
+  height: 10px;
+  vertical-align: middle;
+}
+
+.molo .modal-container.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.molo .modal {
+  width: 100%;
+  display: inline-block;
+  text-align: left;
+  max-width: 865px;
+  width: 865px;
+  min-height: auto;
+  margin-bottom: 16px;
+  background: whitesmoke;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s, opacity 2s -webkit-transform 0.5s;
+  z-index: 90000;
+  transform: scale(0.9);
+  vertical-align: middle;
+  position: relative;
+  left: 0;
+}
+
+.molo .modal::after {
+  content: '';
+  position: absolute;
+  display: block;
+  border: 1px solid transparent;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.molo .modal-header {
+  background-color: #fff;
+  border: none;
+  padding: 16px 32px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.molo .modal-title {
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
+  color: #172b4d;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.molo .modal-close-wrap {
+  visibility: hidden;
+}
+
+.molo .modal-close {
+  position: relative;
+  top: 3px;
+  left: 5px;
+  right: 7px;
+  padding: 9px 8px 7px;
+  font-size: 1.1em;
+  color: #0052cc;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.molo .modal-close:before {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  line-height: 0;
+  margin-top: -2px;
+}
+
+.molo .modal-close:focus {
+  outline: 2px solid lightsteelblue;
+}
+
+.molo .modal-body {
+  background-color: #fff;
+  border: none;
+  padding: 16px 32px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.molo .modal-body .list-projects {
+  display: block;
+  position: relative;
+  top: 10px;
+  left: 0px;
+  max-width: 175px;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 1px rgba(9, 30, 66, 0.31);
+  border-radius: 0.3rem;
+  transition: display 0.2s ease-out 0s;
+}
+
+.molo .modal-body .list-projects ul {
+  padding-left: 10px;
+  font-weight: 500;
+  list-style: none;
+}
+
+.molo .modal-body .list-projects ul li {
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.molo .modal-body .no-display {
+  display: none;
+}
+
+.molo .modal-footer {
+  background-color: #fff;
+  border: none;
+  padding: 16px 32px;
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.molo .footer-btns {
+  text-align: right;
+}
+
+.molo .footer-btns input {
+  position: relative;
+  top: 11px;
+}
+
+.molo .footer-btns .bottom-btn {
+  -webkit-box-align: baseline;
+  align-items: baseline;
+  border-width: 0px;
+  box-sizing: border-box;
+  display: inline-flex;
+  font-size: inherit;
+  font-style: normal;
+  font-weight: 500;
+  max-width: 100%;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background: #0052cc;
+  border-radius: 3px;
+  box-shadow: transparent 0px 0px 0px 2px;
+  color: white;
+  cursor: default;
+  height: 2.28571em;
+  line-height: 2.28571em;
+  padding: 0px 8px;
+  transition: background 0.1s ease-out 0s, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38) 0s;
+  vertical-align: middle;
+  width: auto;
+  margin-left: 12px;
+}
+
+.molo .modal-bottom-close {
+  left: -1000%;
+  position: absolute;
+}
+
+.molo .project {
+  margin-bottom: 50px;
+}
+
+.molo #project-type {
+  position: relative;
+  top: 25px;
+  left: -60px;
+}
+
+.molo #issue-type {
+  position: relative;
+  top: 25px;
+  left: -48px;
+}
+
+.molo #summary, .molo #description, .molo #assignee, .molo #labels, .molo #reporter,
+.molo #linked-issues, .molo #attachment {
+  width: 100%;
+  position: relative;
+  left: 0px;
+  height: 32px;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
+  color: #172b4d;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  background-color: #f4f5f7;
+  border: 1px solid #dfe1e6;
+  padding: 4px 7px 5px;
+}
+
+.molo #attachment {
+  width: 100%;
+  border: 1px dashed #ccc;
+  border-radius: 0;
+  padding: 7px;
+  transition: background-color .01s linear .01s;
+  position: relative;
+  background-color: #fff;
+}
+
+.molo input {
+  height: 32px;
+  font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;
+  color: #172b4d;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  background-color: #f4f5f7;
+  border: 1px solid #dfe1e6;
+  padding: 4px 7px 5px;
+}
+
+.molo input:-ms-input-placeholder {
+  font-weight: bold;
+  color: black;
+}
+
+.molo .btn-project-displayer {
+  position: relative;
+  top: 25px;
+  left: -11%;
+}
+
+.molo .btn-issue-displayer {
+  position: relative;
+  top: 25px;
+  left: -9%;
+}
+
+.molo .btn-assignee-displayer, .molo .btn-labels-displayer, .molo .btn-linkedIssues-displayer {
+  position: relative;
+  top: -34px;
+  left: 96%;
+}
+
+.molo .issue-description {
+  margin-top: -30px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  font-size: 12px;
+  color: #6c798f;
+}
+
+.molo .flagged {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.molo .flagged label {
+  position: relative;
+  top: -10px;
+}
+
+.molo .flagged .flagged-input {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.molo .flagged .flagged-input p {
+  position: relative;
+  top: -9px;
+  left: 3px;
+}
+
+.molo .issue {
+  margin-bottom: 50px;
+}
+
+.molo .summary, .molo .description, .molo .reporter, .molo .attachment {
+  margin-bottom: 25px;
+}
+
+.molo .assignee, .molo .labels {
+  margin-bottom: -15px;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=template.css.map */
